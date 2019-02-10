@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Point {
     
     private:
@@ -7,5 +9,7 @@ class Point {
 
     public:
     
+    Point();
     Point(float abs, float ord);
+    void display();
 };

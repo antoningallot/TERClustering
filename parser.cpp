@@ -13,7 +13,6 @@ vector<Point> parsing (int n, string filename) {
     float x, y;
     int taille, dimension;
     int cpt = 0;
-    string filename;
     ifstream file (filename);
     file >> taille;
     file >> dimension;
@@ -22,7 +21,7 @@ vector<Point> parsing (int n, string filename) {
         if(file.is_open()){
             file >> x;
             file >> y;
-            Point p = Point(x, y);
+            Point p(x, y);
             res.push_back(p);
             taille++;
         }
@@ -31,15 +30,15 @@ vector<Point> parsing (int n, string filename) {
     return res;
 }
 
-void display(vector<float,float> tab) {
+void display(vector<Point> tab) {
     int i;
     for(i = 0; i < tab.size(); i++){
-        cout << get<0>(tab[i]) << " " get<1>(tab[i]) << "\n";
+        tab[i].display();
     }
 }
 
 int main () {
-    vector<float, float> tab = parsing(50, "dataAleaBox_5_60_100_ex0.txt");
+    vector<Point> tab = parsing(50, "data.txt");
     display(tab);
     
     return 0;
